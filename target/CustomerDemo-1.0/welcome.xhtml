@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Hello Customer Project</title>
+</h:head>
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td><h:outputLabel for="firstName" value="First Name : " /></td>
+				<td><p:inputText id="firstName" value="#{customerMB.firstName}">
+						<f:validateLength minimum="1" />
+						<p:ajax event="blur" update="firstNameMsg" />
+					</p:inputText> <p:message id="firstNameMsg" for="firstName" display="icon" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="middleName" value="Middle Name : " /></td>
+				<td><p:inputText id="middleName"
+						value="#{customerMB.middleName}">
+						<f:validateLength minimum="1" />
+						<p:ajax event="blur" update="middleNameMsg" />
+					</p:inputText> <p:message id="middleNameMsg" for="middleName" display="icon" /></td>
+			</tr>
+			<tr>
+				<td><h:outputLabel for="lastName" value="Last Name : " /></td>
+				<td><p:inputText id="lastName" value="#{customerMB.lastName}">
+						<f:validateLength minimum="1" />
+						<p:ajax event="blur" update="lastNameMsg" />
+					</p:inputText> <p:message id="lastNameMsg" for="lastName" display="icon" /></td>
+			</tr>
+			<tr>
+				<td><p:commandButton id="addUser" value="Add"
+						action="#{customerMB.addCustomer}" ajax="false" /></td>
+				<td><p:commandButton id="reset" value="Reset"
+						action="#{customerMB.reset}" ajax="false" /></td>
+			</tr>
+		</table>
+	</h:form>
+</h:body>
+</html>
