@@ -2,13 +2,6 @@ package com.ravi.spring.dao;
  
 import java.util.List;
 
-
- 
-
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
 import com.ravi.spring.model.Customer;
 
 /**
@@ -16,58 +9,28 @@ import com.ravi.spring.model.Customer;
  * @author rdarbham
  *
  */
-@Repository
-public class CustomerDAO  {
-    @Autowired
-    private SessionFactory sessionFactory;
- 
-    /**
-     * Get Hibernate Session Factory
-     *
-     * @return SessionFactory - Hibernate Session Factory
-     */
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
- 
-    /**
-     * Set Hibernate Session Factory
-     *
-     * @param sessionFactory SessionFactory - Hibernate Session Factory
-     */
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+public interface CustomerDAO  {
  
     /**
      * Add customer
      *
      * @param   customer   customer
      */
-   
-    public void addCustomer(Customer customer) {
-        getSessionFactory().getCurrentSession().save(customer);
-    }
+    public void addCustomer(Customer customer);
  
     /**
      * Delete customer
      *
      * @param   customer  customer
      */
-   
-    public void deleteCustomer(Customer customer) {
-        getSessionFactory().getCurrentSession().delete(customer);
-    }
+    public void deleteCustomer(Customer customer);
  
     /**
      * Update customer
      *
      * @param  customer customer 
      */
-   
-    public void updateCustomer(Customer customer) {
-        getSessionFactory().getCurrentSession().update(customer);
-    }
+    public void updateCustomer(Customer customer);
  
     /**
      * Get customer
@@ -76,12 +39,7 @@ public class CustomerDAO  {
      * @return customer
      */
    
-    public Customer getCustomerById(int id) {
-        List list = getSessionFactory().getCurrentSession()
-                                            .createQuery("from Customer  where id=?")
-                                            .setParameter(0, id).list();
-        return (Customer)list.get(0);
-    }
+	public Customer getCustomerById(int id);
  
     /**
      * Get customer List
@@ -89,9 +47,6 @@ public class CustomerDAO  {
      * @return List - customer list
      */
    
-    public List<Customer> getCustomers() {
-        List list = getSessionFactory().getCurrentSession().createQuery("from Customer").list();
-        return list;
-    }
+	public List<Customer> getCustomers();
  
 }
