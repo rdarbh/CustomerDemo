@@ -27,7 +27,6 @@ public class CustomerBean implements Serializable {
     private static final String SUCCESS = "success";
     private static final String ERROR   = "error";
  
-    //Spring Customer Service is injected...
     @ManagedProperty(value="#{CustomerService}")
     CustomerService customerService;
  

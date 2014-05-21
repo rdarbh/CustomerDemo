@@ -18,8 +18,7 @@
 			<tr>
 				<td><h:outputLabel for="middleName" value="Middle Name : " /></td>
 				<td><p:inputText id="middleName"
-						value="#{customerMB.middleName}">
-						<f:validateLength minimum="1" />
+						value="#{customerMB.middleName}">						
 						<p:ajax event="blur" update="middleNameMsg" />
 					</p:inputText> <p:message id="middleNameMsg" for="middleName" display="icon" /></td>
 			</tr>
