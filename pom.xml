@@ -8,7 +8,7 @@
 	<name>Primefaces With Spring and Hibernate</name>
 	<url>http://maven.apache.org</url>
     <properties>
-        <spring.version>4.3.17</spring.version>
+        <spring.version>5.2.22.RELEASE</spring.version>
 
     </properties>
 	<repositories>
